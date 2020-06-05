@@ -1,0 +1,70 @@
+version: "3.7"
+
+
+volumes:
+  postgres_data:
+  logs:
+
+
+services:
+
+  web-django:
+    image: informationsystem:0.1
+    environment:
+      - POSTGRES_HOST=db-postgres
+      - POSTGRES_PORT=5432
+      - WEB_DJANGO_LOGS=/usr/logs/
+      - WEB_DJANGO_DEBUG=1
+    env_file:
+      - ./postgres.env
+    ports:
+      - "8005:80"
+    volumes:
+      - ./InformationSystem:/usr/src/InformationSystem
+      - logs:/usr/logs
+
+    # docker_stack-specific
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: any
+
+    # docker-compose-specific
+    build:
+      context: ./InformationSystem
+      dockerfile: Dockerfile
+      args:
+        - APP_DIR=/usr/src/InformationSystem
+      network: host
+
+  db-postgres:
+    image: postgres:12.2
+    env_file:
+      - ./postgres.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    # docker_stack-specific
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: any
+
+  web-nginx:
+    image: nginx:latest
+    volumes:
+      - ./InformationSystem/static:/InformationSystem/static
+      - ./nginx/ssl_certificate:/nginx/ssl_certificate
+      - ./nginx/nginx_conf:/etc/nginx
+    ports:
+      # host:container
+      - "443:443"
+      - "80:80"

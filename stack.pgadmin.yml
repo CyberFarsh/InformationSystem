@@ -1,0 +1,26 @@
+version: "3.7"
+
+
+volumes:
+  pgadmin_data:
+
+
+services:
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    env_file:
+      - ./pgadmin.env
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    ports:
+      - "8002:80"
+
+    # docker_stack-specific
+    deploy:
+      replicas: 1
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: any
