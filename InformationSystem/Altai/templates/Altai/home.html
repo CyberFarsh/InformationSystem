@@ -1,0 +1,26 @@
+{% extends 'Altai/main.html' %}
+
+{% block main_section %}
+
+<style type="text/css">
+ #container {
+  width: 1200px; /* Ширина макета */
+  margin: 0 auto; /* Выравниваем макет по центру */
+ }
+ #leftcol {
+  margin-right: 200px; /* Отступ справа */
+  background: #f0f0f0;
+ }
+ #rightcol {
+  float: right; /* Обтекание по левому краю */
+  width: 200px; /* Ширина правой колонки */
+  background: #fc0;
+ }
+</style>
+
+  <div id="container">
+   <div id="rightcol">Правая колонка</div>
+   <div id="leftcol">Левая колонка</div>
+  </div>
+
+{% endblock %}
