@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'social_django',
     'Altai.apps.AltaiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -63,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
             ],
         },
     },
@@ -76,8 +78,12 @@ WSGI_APPLICATION = 'InformationSystem.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'InformationSystem',
+        'USER': 'adminAlt',
+        'PASSWORD': 'pMnDcH6J3BRV89H2B',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -100,9 +106,19 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
+    'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
+)
 
-# Internationalization
-# https://docs.djangoproject.com/en/3.0/topics/i18n/
+
+SOCIAL_AUTH_VK_OAUTH2_KEY = 'dnguLlchD3yAFPEjxJ4e'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'a1b352aea1b352aea1b352ae17a1c120a1aa1b3a1b352aeff692db5c5122698b43bf96a'
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
+LOGIN_REDIRECT_URL = '/'
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
 
 LANGUAGE_CODE = 'en-us'
 
