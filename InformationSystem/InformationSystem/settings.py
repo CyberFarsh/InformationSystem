@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'InformationSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'InformationSystem',
-        'USER': 'adminAlt',
-        'PASSWORD': 'pMnDcH6J3BRV89H2B',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'NAME': os.environ.get("POSTGRES_DB"),
+        'USER': os.environ.get("POSTGRES_USER"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
+        'HOST': os.environ.get("POSTGRES_HOST"),
+        'PORT': os.environ.get("POSTGRES_PORT"),
     }
 }
 
@@ -111,9 +111,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
 )
 
-
-SOCIAL_AUTH_VK_OAUTH2_KEY = 'dnguLlchD3yAFPEjxJ4e'
-SOCIAL_AUTH_VK_OAUTH2_SECRET = 'a1b352aea1b352aea1b352ae17a1c120a1aa1b3a1b352aeff692db5c5122698b43bf96a'
+SOCIAL_AUTH_VK_OAUTH2_KEY = '7500303'
+SOCIAL_AUTH_VK_OAUTH2_SECRET = 'dnguLlchD3yAFPEjxJ4e'
 SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 LOGIN_REDIRECT_URL = '/'
 
@@ -129,6 +128,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+VK_APP_ID = '7500303'
+VK_API_SECRET = 'dnguLlchD3yAFPEjxJ4e'
+VKONTAKTE_APP_SECRET = 'a1b352aea1b352aea1b352ae17a1c120a1aa1b3a1b352aeff692db5c5122698b43bf96a'
 
 
 # Static files (CSS, JavaScript, Images)
