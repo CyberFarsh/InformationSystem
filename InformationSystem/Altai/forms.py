@@ -1,7 +1,8 @@
 from django import forms
+from .models import Initiative
 
 
-class initiative(forms.Form):
-    name = forms.CharField()
-    budget = forms.CharField()
-    type = forms.CharField()
+class initiative(forms.ModelForm):
+    class Meta:
+        model = Initiative
+        fields = ["name", "type", "budget"]
