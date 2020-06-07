@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'social_django',
+    'psycopg2',
     'Altai.apps.AltaiConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -79,11 +80,11 @@ WSGI_APPLICATION = 'InformationSystem.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get("POSTGRES_DB"),
-        'USER': os.environ.get("POSTGRES_USER"),
-        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
-        'HOST': os.environ.get("POSTGRES_HOST"),
-        'PORT': os.environ.get("POSTGRES_PORT"),
+        'NAME': 'InformationSystem',
+        'USER': 'adminAlt',
+        'PASSWORD': 'pMnDcH6J3BRV89H2B',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -113,7 +114,7 @@ AUTHENTICATION_BACKENDS = (
 
 SOCIAL_AUTH_VK_OAUTH2_KEY = '7500303'
 SOCIAL_AUTH_VK_OAUTH2_SECRET = 'dnguLlchD3yAFPEjxJ4e'
-SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
+SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email', 'photos', 'offline']
 LOGIN_REDIRECT_URL = '/'
 
 SOCIAL_AUTH_POSTGRES_JSONFIELD = True
