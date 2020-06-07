@@ -14,8 +14,18 @@ from .forms import initiative
 #     return render(request, 'Altai/CreateInitiative.html', context)
 
 
-def project(request):
-    return render(request, 'Altai/project.html')
+def initiatives(request):
+    context = {
+        'initiatives': Initiative.objects.all()
+    }
+    return render(request, 'Altai/initiative.html', context)
+
+
+def project(request, id_project):
+    context = {
+        'project': Initiative.objects.filter(id=id_project).get()
+    }
+    return render(request, 'Altai/project.html', context)
 
 
 def home(request):

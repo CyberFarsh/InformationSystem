@@ -1,12 +1,12 @@
 {% extends 'Altai/main.html' %}
 
 {% block main_section %}
-<body style="background: url(static/back1.png) no-repeat; background-size: 100%;">
+<body class="p-3 mb-2 bg-secondary text-white">
     <div class="container-fluid" style="height: 100%;">
         <div class="row">
             <div class="col">
-                <p style="font-size: 24px; color: #FFFFFF; margin: 100 0 0 180px">Создание парка</p>
-                <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 180px">Благоустройство, районное</p>
+                <p style="font-size: 24px; color: #FFFFFF; margin: 100 0 0 180px">{{project.name}}</p>
+                <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 180px">{{project.type_initiative}}</p>
             </div>
             <div class="col">
                 <p style="font-size: 24px; color: #FFFFFF; margin: 100 0 0 320px"> Cтатус</p>
@@ -14,7 +14,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <p style="font-size: 24px; color: #FFFFFF; margin: 0 0 0 180px">Анатолий Князев</p>
+                <p style="font-size: 24px; color: #FFFFFF; margin: 0 0 0 180px">{{project.author_name}} {{project.author_family_name}} </p>
             </div>
             <div class="col">
                 <div style="border-radius: 5px; background: #54CD2A;width: 200px; height: 40px; text-align: center; margin: 0 0 0 250px ">
@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <p style="font-size: 24px; color: #FFFFFF; margin: 0 0 0 180px">Адрес: г.Барнаул, ул. Лиственная 32</p>
+                <p style="font-size: 24px; color: #FFFFFF; margin: 0 0 0 180px">Адрес: {{project.address}}</p>
             </div>
             <div class="col">
             </div>
@@ -62,7 +62,7 @@
                         <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 90px">За</p>
                     </div>
                     <div class="col">
-                        <p style="font-size: 24px; color: #FFFFFF;">54</p>
+                        <p style="font-size: 24px; color: #FFFFFF;">{{project.quantity_voice}}</p>
                     </div>
                  </div>
                 <div class="row">
@@ -70,7 +70,7 @@
                         <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 90px">Против</p>
                     </div>
                      <div class="col">
-                        <p style="font-size: 24px; color: #FFFFFF;">15</p>
+                        <p style="font-size: 24px; color: #FFFFFF;">{{project.voice_against}}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -78,7 +78,7 @@
                         <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 90px">Осталось набрать</p>
                     </div>
                     <div class="col">
-                        <p style="font-size: 24px; color: #FFFFFF;">97</p>
+                        <p style="font-size: 24px; color: #FFFFFF;">{{project.voice_left}}</p>
                      </div>
                  </div>
                  <div class="row">
@@ -86,7 +86,7 @@
                         <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 90px">Всего нужно</p>
                     </div>
                     <div class="col">
-                        <p style="font-size: 24px; color: #FFFFFF;">136</p>
+                        <p style="font-size: 24px; color: #FFFFFF;">{{project.target}}</p>
                     </div>
                  </div>
                 <div class="row">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 90px">12.06.2020</p>
+                        <p style="font-size: 24px; color: #FFFFFF;margin: 0 0 0 90px">{{project.data}}</p>
                     </div>
                     <div class="col">
                     </div>
@@ -106,7 +106,7 @@
               </div>
           </div>
         <div class="col" style="margin: 25 40 0 180px">
-            <p style="font-size: 24px; color: #FFFFFF; margin: 0 400 0 0px;text-indent: 50px;" width="700px">Я хочу, чтобы наш город оставался зеленым и комфортным местом для жизни. Однако в последние годы наш район потерял много зеленых уголков - засыпаются реки, вырубаются деревья, под строительство спортивных сооружений, и новые многоэтажки. У жителей отняли важные природные территории.</p>
+            <p style="font-size: 24px; color: #FFFFFF; margin: 0 400 0 0px;text-indent: 50px;" width="700px">{{project.short_description}}</p>
         </div>
         <div class="row">
     <div class="col"> 

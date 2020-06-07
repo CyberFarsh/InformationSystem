@@ -126,6 +126,14 @@ class Initiative(models.Model):
     quantity_voice = models.BigIntegerField(blank=True, null=True)
     type_initiative = models.CharField(max_length=80, blank=True, null=True)
     budget = models.FloatField(blank=True, null=True)
+    author_name = models.TextField(blank=True, null=True)
+    author_family_name = models.TextField(blank=True, null=True)
+    short_description = models.TextField(blank=True, null=True)
+    address = models.TextField(blank=True, null=True)
+    voice_against = models.TextField(blank=True, null=True)
+    voice_left = models.BigIntegerField(blank=True, null=True)
+    target = models.BigIntegerField(blank=True, null=True)
+    data = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False

@@ -1,0 +1,43 @@
+{% extends 'Altai/main.html' %}
+
+{% block main_section %}
+<style>
+   .card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.7rem;
+}
+.mb-2, .my-2 {
+    margin-bottom: .0rem!important;
+}
+</style>
+<body style="background: url(static/main_city.jpg) no-repeat; background-size: 100%;">
+<div class="container" style="margin-top: 40px">
+
+<div class="row">
+{% for el in initiatives %}
+  <div class="col mb-5">
+    <div class="card">
+      <img src="..." class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{el.name}}</h5>
+        <p class="card-text">{{el.short_description}}</p>
+          <p class="card-text mb-2 text-muted">{{el.quantity_voice}}</p>
+          <p class="card-text mb-2 text-muted">Репосты: 30</p>
+          <div class="row row-cols-1 row-cols-md-2">
+            <div class="col mb-4">
+              <button type="button" class="btn btn-primary">Голосовать</button>
+            </div>
+            <div class="col mb-4">
+              <a href="{% url 'project' id_project=el.id %}"><button type="button" class="btn btn-primary">Подробно</button></a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+</body>
+
+{% endblock %}
