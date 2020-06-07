@@ -122,7 +122,6 @@ class DjangoSession(models.Model):
 
 
 class Initiative(models.Model):
-    id = models.AutoField(unique=True)
     name = models.CharField(max_length=80, blank=True, null=True)
     quantity_voice = models.BigIntegerField(blank=True, null=True)
     type_initiative = models.CharField(max_length=80, blank=True, null=True)
