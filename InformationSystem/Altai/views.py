@@ -14,6 +14,10 @@ from .forms import initiative
 #     return render(request, 'Altai/CreateInitiative.html', context)
 
 
+def project(request):
+    return render(request, 'Altai/project.html')
+
+
 def home(request):
     return render(request, 'Altai/home.html')
 
